@@ -1,0 +1,9 @@
+二、Spring的自动注入
+Spring提供了五种自动装配的类型
+no：顾名思义， 显式指明不使用Spring的自动装配功能
+byName：根据属性和组件的名称匹配关系来实现bean的自动装配
+byType：根据属性和组件的类型匹配关系来实现bean的自动装配，有多个适合类型的对象时装配失败
+constructor：与byType类似是根据类型进行自动装配，但是要求待装配的bean有相应的构造函数
+autodetect：利用Spring的自省机制判断使用byType或是constructor装配
+
+@Resource和@Autowired的区别。@Resource默认是使用byName进行装配，@Autowired默认使用byType进行装配。

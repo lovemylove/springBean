@@ -1,0 +1,9 @@
+方法二：基于注解的bean定义（不需要提供setter方法）
+Spring为此提供了四个注解，这些注解的作用与上面的XML定义bean效果一致，在于将组件交给Spring容器管理。组件的名称默认是类名（首字母变小写），也可以自己修改：
+@Component：当对组件的层次难以定位的时候使用这个注解
+@Controller：表示控制层的组件
+@Service：表示业务逻辑层的组件
+@Repository：表示数据访问层的组件
+使用这些注解的时候还有一个地方需要注意，就是需要在applicationContext.xml中声明<contex:component-scan...>一项，指明Spring容器扫描组件的包目录。
+
+使用的xml配置文件名：applicationContext.xml

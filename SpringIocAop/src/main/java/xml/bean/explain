@@ -1,0 +1,5 @@
+方法一：基于XML的bean定义（需要提供setter方法） 
+	增加xml文件：xmlpeizhi.xml
+方法二：类包com.spring.SpringIocAop
+方法三：基于Java类的bean定义（需要提供setter方法）
+	使用的classname:TheThird.java, TheThirdMain.java

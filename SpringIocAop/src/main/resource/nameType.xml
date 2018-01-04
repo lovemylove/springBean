@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+       xsi:schemaLocation="http://www.springframework.org/schema/beans  
+       http://www.springframework.org/schema/beans/spring-beans.xsd">  
+    <!-- 基于XML的自动装配:这里我并没有显式为Student对象注入Teacher属性，而是使用autowired="byName"代替，
+    	   这样一来Spring会帮我们处理这些细节，将名字是teacher的组件注入到Student对象中。 -->
+    <bean id="student" class="test.Student" autowire="byName">  
+        <property name="name" value="张三"/>  
+    </bean>  
+  
+    <bean id="teacher" class="test.Teacher">  
+        <property name="name" value="李四"/>  
+    </bean>  
+  
+</beans> 
+
