@@ -11,12 +11,18 @@
 	<bean id="helloworld2" class="ioc.aop.HelloWorldImpl2" />
 	
 	<bean id="timehandler" class="ioc.aop.TimeHandler" />
+	<bean id="loghandler" class="ioc.aop.LogHandler"/>
 	
 	<aop:config>
-		<aop:aspect id="time" ref="timehandler">
-			<aop:pointcut expression="execution(* ioc.aop.HelloWorld.*(..))" id="addAllMethod"/>
-			<aop:before method="printTime" pointcut-ref="addAllMethod"/>
-			<aop:after method="pirntTime" pointcut-ref="addAllMethod"/>
+		<aop:aspect id="time" ref="timehandler" order="1">
+			<aop:pointcut id="addTime" expression="execution(* ioc.aop.HelloWorld.print*(..))" />
+			<aop:before method="printTime" pointcut-ref="addTime"/>
+			<aop:after method="printTime" pointcut-ref="addTime"/>
+		</aop:aspect>
+		<aop:aspect id="log" ref="loghandler" order="2">
+			<aop:pointcut expression="execution(* ioc.aop.HelloWorld.do*(..))" id="printlog"/>
+			<aop:before method="logBefore" pointcut-ref="printlog"/>
+			<aop:after method="logAfter" pointcut-ref="printlog"/>
 		</aop:aspect>
 	</aop:config>
 	
